@@ -1,0 +1,260 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+}
+
+body {
+  background-image: url("../images/Miffy-strawberry.jpeg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  margin-top: 50px;
+}
+
+#principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* titre animé */
+h1 {
+  font-size: 10em;
+  color: #be2835;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  transition-timing-function: ease;
+}
+
+.wave-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.wave-text span {
+  display: inline-block;
+  font-size: 4rem;
+  animation: wave 2s ease-in-out infinite;
+}
+
+.wave-text .quiz-titre:nth-child(1) span:nth-child(1) {
+  animation-delay: 0s;
+}
+.wave-text .quiz-titre:nth-child(1) span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.wave-text .quiz-titre:nth-child(1) span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.wave-text .quiz-titre:nth-child(1) span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.wave-text .sur-titre:nth-child(2) span:nth-child(1) {
+  animation-delay: 0.4s;
+}
+.wave-text .sur-titre:nth-child(2) span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.wave-text .sur-titre:nth-child(2) span:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.wave-text .Miffy-titre:nth-child(3) span:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.wave-text .Miffy-titre:nth-child(3) span:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.wave-text .Miffy-titre:nth-child(3) span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.wave-text .Miffy-titre:nth-child(3) span:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.wave-text .Miffy-titre:nth-child(3) span:nth-child(5) {
+  animation-delay: 0.1s;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.cont-quiz {
+  position: relative;
+  z-index: 5;
+  opacity: 1;
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.93);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
+  margin: 40px auto;
+  padding: 40px 30px 30px 30px;
+  max-width: 420px;
+  min-width: 260px;
+  transition: transform 250ms ease-out, opacity 400ms linear;
+  transform: translateY(-40px);
+}
+
+.cont-quiz.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quiz {
+  background: transparent;
+  border-radius: 10px;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.question {
+  font-size: 1.7em;
+  color: #be2835;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.reponses {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-bottom: 10px;
+}
+
+.option-btn {
+  background: #f589c4;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 0px #cf3d6b;
+  font-size: 1.1em;
+  padding: 17px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 20px;
+  outline: none;
+  margin-left: 10px;
+  margin-top: 10px;
+  transition: all 0.18s;
+}
+
+.option-btn:hover,
+.option-btn:focus {
+  background: #cf3d6b;
+  box-shadow: 0 2px 0px #743fb5;
+  transform: translateY(2px) scale(1.03);
+}
+
+/* changement des couleurs selon la selection du joueur */
+.option-btn.mauvaise {
+  background: #ca0f1f;
+  box-shadow: 0 4px 0px #840202;
+  color: #fff;
+}
+
+.option-btn.bonne {
+  background: #0c853c;
+  box-shadow: 0 4px 0px #08551c;
+  color: #fff;
+}
+
+.score,
+.best-score {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #cf3d6b;
+  font-weight: 600;
+}
+
+/* bouton commencer */
+.bouton {
+  background: #f589c4;
+  font-size: 20px;
+  color: white;
+  border-radius: 7px;
+  box-shadow: 0 7px 0px #cf3d6b;
+  display: inline-block;
+  position: relative;
+  padding: 20px 25px;
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  margin: 0 20px;
+  transition: all 0.2s;
+}
+
+.bouton:active {
+  top: 3px;
+  box-shadow: 0 2px 0px #743fb5;
+  transition: 0.2s;
+}
+
+.bouton:hover {
+  box-shadow: 0 2px 0px #743fb5;
+  transform: translateY(-8px);
+}
+
+.bouton.rejouer{
+  transition: all 0.2s;
+}
+
+footer {
+  margin-top: 300px;
+  text-align: center;
+}
+
+/* requetes medias======================================================== */
+/* format grand */
+@media screen and (max-width: 992px) {
+  body {
+    background-image: url("/images/Miffy-strawberry.jpeg");
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-image: url("/images/miffy\ wallpaper\ _3.jpg");
+  }
+
+  h1{
+    color: white;
+  }
+}
+
+/* format petit */
+@media screen and (max-width: 576px) {
+  body {
+    background-image: url("/images/blanc.jpg");
+  }
+
+  h1{
+    color: rgb(105, 105, 105);
+  }
+}
